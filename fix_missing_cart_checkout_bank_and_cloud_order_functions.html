@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PECH REY ATELIER — ប៉ិច រ៉ី អាតេលីយេ (Male & Female Apparel)</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts for Khmer & English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700;900&family=Kantumruy+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kantumruy Pro', 'Plus Jakarta Sans', 'sans-serif'],
+                        khmer: ['Battambang', 'Kantumruy Pro', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            850: '#0c3d4a',
+                            900: '#0F4C5C', // Deep Emerald Primary
+                            950: '#092d37',
+                        },
+                        terracotta: {
+                            500: '#E36414', // Terracotta Coral Accent
+                            600: '#D0530A',
+                            400: '#FB8B24',
+                        },
+                        gold: {
+                            500: '#D97706',
+                            600: '#B45309',
+                        },
+                        ivory: '#FAF9F6', // Warm Sand Background
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                        'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-subtle': 'pulseSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseSubtle: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.85' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF9F6;
+            color: #1e293b;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0F4C5C;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E36414;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased selection:bg-emerald-900 selection:text-white">
+
+    <!-- Top Announcement & Verified Shop Owner Bar -->
+    <div class="bg-emerald-900 text-white text-xs py-2.5 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap justify-center md:justify-start text-center md:text-left">
+                <span class="bg-terracotta-500 text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse">
+                    ហាងផ្លូវការ / Official Store
+                </span>
+                <span class="font-khmer">
+                    <i class="fa-solid fa-user-check text-terracotta-400 mr-1"></i>
+                    ម្ចាស់ទំនិញ: <strong class="text-amber-300">ប៉ិច រ៉ី (PECH REY)</strong>
+                </span>
+                <span class="hidden sm:inline opacity-40">|</span>
+                <span><i class="fa-solid fa-phone text-terracotta-400 mr-1"></i>088 901 8167 / 097 777 8888</span>
+            </div>
+            <div class="flex items-center gap-4 text-[11px]">
+                <button onclick="toggleBankInfoModal()" class="text-emerald-200 hover:text-white flex items-center gap-1 font-bold">
+                    <i class="fa-solid fa-building-columns text-terracotta-400"></i> គណនីធនាគារខ្មែរ (Cambodian Banks)
+                </button>
+                <button onclick="toggleStoreLocationModal()" class="text-amber-300 hover:underline flex items-center gap-1 font-bold">
+                    <i class="fa-solid fa-location-dot"></i> ទីតាំងហាង (Map)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Brand Logo & Name (Pech Ry Atelier) -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="filterGender('all')">
+                    <div class="w-11 h-11 bg-gradient-to-br from-emerald-900 to-emerald-950 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-md border border-emerald-800">
+                        ប
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-extrabold text-xl tracking-tight text-emerald-900 font-khmer">ប៉ិច រ៉ី អាតេលីយេ</span>
+                        </div>
+                        <span class="text-[10px] tracking-widest text-terracotta-500 font-bold uppercase block -mt-1">PECH RY ATELIER • MALE & FEMALE</span>
+                    </div>
+                </div>
+
+                <!-- Category Filters (Desktop) -->
+                    <!-- Cart Trigger Button & Quick Product List Dropdown -->
+                    <div class="relative" id="header-cart-wrapper">
+                        <button onclick="toggleCartDrawer()" onmouseenter="setQuickCartOpen(true)" class="relative p-2.5 bg-terracotta-500 text-white hover:bg-terracotta-600 rounded-full transition-all flex items-center justify-center shadow-md hover:shadow-lg">
+                            <i class="fa-solid fa-bag-shopping text-base"></i>
+                            <span id="cart-badge" class="absolute -top-1 -right-1 bg-emerald-900 text-white text-[10px] font-black w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shadow">0</span>
+                        </button>
+
+                        <!-- Quick Cart Product List Popover -->
+                        <div id="quick-cart-popover" class="hidden absolute right-0 mt-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 overflow-hidden font-khmer animate-slide-up">
+                            <div class="px-4 py-3 bg-emerald-900 text-white flex items-center justify-between text-xs">
+                                <span class="font-bold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-layer-group text-terracotta-400"></i>
+                                    <span>បញ្ជីកន្ត្រកតាមប្រភេទ (Cart by Category)</span>
+                                </span>
+                                <span id="quick-cart-count" class="bg-terracotta-500 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full">0</span>
+                            </div>
+
+                            <div id="quick-cart-items" class="max-h-72 overflow-y-auto divide-y divide-gray-100 p-2">
+                                <!-- Populated dynamically by updateCartUI() -->
+                            </div>
+
+                            <div id="quick-cart-footer" class="hidden p-3 bg-gray-50 border-t border-gray-200 space-y-2.5">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-gray-600 font-semibold">សរុប (Total):</span>
+                                    <div class="text-right">
+                                        <span id="quick-cart-total-usd" class="font-black text-emerald-950 text-sm">$0.00</span>
+                                        <span id="quick-cart-total-khr" class="block text-[10px] font-bold text-terracotta-600">0 ៛</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button type="button" onclick="setQuickCartOpen(false); toggleCartDrawer();" class="bg-white hover:bg-gray-100 text-emerald-950 border border-gray-300 font-bold py-2 rounded-xl text-xs transition-colors">
+                                        បើកកន្ត្រក (View Cart)
+                                    </button>
+                                    <button type="button" onclick="setQuickCartOpen(false); openCheckoutModal();" class="bg-emerald-900 hover:bg-emerald-950 text-white font-bold py-2 rounded-xl text-xs transition-colors shadow-xs">
+                                        បញ្ជាទិញឥឡូវ (Checkout)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Mobile Search -->
+        <div class="sm:hidden px-4 pb-3">
+            <div class="relative">
+                <input type="text" oninput="handleSearch(this.value)" placeholder="ស្វែងរកសម្លៀកបំពាក់..." 
+                    class="w-full pl-9 pr-4 py-2 text-xs bg-gray-100 focus:bg-white focus:ring-2 focus:ring-emerald-900 rounded-full outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Verified Shop & Owner Banner (ប៉ិច រ៉ី / PECH REY ATELIER) -->
+    <section class="bg-emerald-950 text-white py-8 border-b border-emerald-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-emerald-900 via-emerald-850 to-slate-900 p-6 rounded-2xl border border-emerald-700/50 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-emerald-800/80 px-3 py-1 rounded-full text-xs text-emerald-200 border border-emerald-600/40 font-khmer">
+                        <i class="fa-solid fa-store text-terracotta-400"></i>
+                        <span>ហាងផ្លូវការមានទីតាំងច្បាស់លាស់ (Official Store Verified)</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-khmer text-white">
+                        សម្លៀកបំពាក់បុរស-នារី គុណភាពខ្ពស់ <span class="text-terracotta-400">ប៉ិច រ៉ី អាតេលីយេ</span>
+                    </h1>
+                    <p class="text-xs sm:text-sm text-gray-300 max-w-2xl font-khmer leading-relaxed">
+                        <i class="fa-solid fa-location-dot text-terracotta-400 mr-1"></i> <strong>ទីតាំងហាង:</strong> ផ្ទះលេខ 128, ផ្លូវ 271, សង្កាត់ទួលទំពូង, ខណ្ឌចំការមន, រាជធានីភ្នំពេញ (Phnom Penh, Cambodia)
+                        <br><i class="fa-solid fa-user-shield text-emerald-400 mr-1"></i> <strong>ម្ចាស់ទំនិញ:</strong> <span class="text-amber-300 font-bold">ប៉ិច រ៉ី (PECH REY)</span> — ទូរស័ព្ទ: 088 901 8167 / 097 777 8888
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <button onclick="toggleBankInfoModal()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg transition-all font-khmer">
+                        <i class="fa-solid fa-building-columns text-sm"></i>
+                        <span>ព័ត៌មានធនាគារទូទាត់</span>
+                    </button>
+                    <button onclick="toggleStoreLocationModal()" class="bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg transition-all font-khmer">
+                        <i class="fa-solid fa-map-location-dot text-sm"></i>
+                        <span>មើលផែនទីហាង (Map Pin)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Guided 3-Step Customer Ordering Workflow Bar -->
+            <div class="mt-4 bg-emerald-900/50 border border-emerald-700/40 rounded-2xl p-3.5 grid grid-cols-1 md:grid-cols-3 gap-3 font-khmer text-xs">
+                <div onclick="document.getElementById('catalog-section').scrollIntoView({behavior:'smooth'})" class="cursor-pointer flex items-center gap-3 bg-emerald-950/60 hover:bg-emerald-900/80 p-2.5 rounded-xl border border-emerald-800/60 transition-all">
+                    <span class="w-7 h-7 rounded-full bg-terracotta-500 text-white font-black flex items-center justify-center shrink-0">១</span>
+                    <div>
+                        <div class="font-bold text-white">ជ្រើសរើសម៉ូដ ទំហំ & ពណ៌</div>
+                        <div class="text-[10px] text-emerald-200">Pick item, size, weight (kg) & color</div>
+                    </div>
+                </div>
+
+                <div onclick="toggleCartDrawer()" class="cursor-pointer flex items-center gap-3 bg-emerald-950/60 hover:bg-emerald-900/80 p-2.5 rounded-xl border border-emerald-800/60 transition-all">
+                    <span class="w-7 h-7 rounded-full bg-amber-500 text-white font-black flex items-center justify-center shrink-0">២</span>
+                    <div>
+                        <div class="font-bold text-white">ពិនិត្យកន្ត្រកតាមប្រភេទ (Category)</div>
+                        <div class="text-[10px] text-emerald-200">Review items grouped by category & qty</div>
+                    </div>
+                </div>
+
+                <div onclick="openCheckoutModal()" class="cursor-pointer flex items-center gap-3 bg-emerald-950/60 hover:bg-emerald-900/80 p-2.5 rounded-xl border border-emerald-800/60 transition-all">
+                    <span class="w-7 h-7 rounded-full bg-emerald-500 text-white font-black flex items-center justify-center shrink-0">៣</span>
+                    <div>
+                        <div class="font-bold text-white">ទីតាំង ម៉ោង & ទូទាត់ធនាគារ</div>
+                        <div class="text-[10px] text-emerald-200">Set GPS/address, date/time & KHQR/Bank</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Catalog Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full" id="catalog-section">
+
+        <!-- Gender Tabs & Filter Controls -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 bg-white p-5 rounded-2xl border border-gray-200/80 shadow-sm">
+            
+            <!-- Gender Selector Buttons -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0" id="gender-chips">
+                <button onclick="filterGender('all')" class="gender-btn active-gender bg-emerald-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all font-khmer flex items-center gap-1.5 shadow-sm" data-g="all">
+                    <i class="fa-solid fa-border-all"></i> ទាំងអស់ (All)
+                </button>
+                <button onclick="filterGender('men')" class="gender-btn bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all font-khmer flex items-center gap-1.5" data-g="men">
+                    <i class="fa-solid fa-mars text-blue-600"></i> សម្រាប់បុរស (Men)
+                </button>
+                <button onclick="filterGender('women')" class="gender-btn bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all font-khmer flex items-center gap-1.5" data-g="women">
+                    <i class="fa-solid fa-venus text-rose-500"></i> សម្រាប់នារី (Women)
+                </button>
+            </div>
+
+            <!-- Subcategory & Sorting Filters -->
+            <div class="flex flex-wrap items-center gap-3">
+                <select id="subcat-select" onchange="filterSubcategory(this.value)" class="bg-gray-100 text-xs font-bold px-3 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-900 cursor-pointer font-khmer border border-gray-200">
+                    <option value="all">ប្រភេទទាំងអស់ (All Types)</option>
+                    <option value="tops">អាវយឺត & Tops</option>
+                    <option value="outerwear">អាវក្រៅ & Jackets</option>
+                    <option value="bottoms">ខោ & Skirts</option>
+                    <option value="dresses">រ៉ូប & Suits</option>
+                </select>
+
+                <select id="sort-select" onchange="sortProducts(this.value)" class="bg-gray-100 text-xs font-bold px-3 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-900 cursor-pointer font-khmer border border-gray-200">
+                    <option value="featured">ការទាក់ទាញ (Featured)</option>
+                    <option value="price-low">តម្លៃ: ទាប ទៅ ខ្ពស់ (USD)</option>
+                    <option value="price-high">តម្លៃ: ខ្ពស់ ទៅ ទាប (USD)</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- 16+ Expanded Product Catalog Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Dynamic clothing items rendered here -->
+        </div>
+
+        <!-- Empty Filter State -->
+        <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-gray-300">
+            <div class="w-16 h-16 bg-emerald-50 text-emerald-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-shirt text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 font-khmer">មិនមានទំនិញដែលអ្នកស្វែងរកទេ</h3>
+            <p class="text-gray-500 text-xs mt-1 max-w-sm mx-auto font-khmer">សូមសាកល្បងផ្លាស់ប្តូរការតម្រៀប ឬពាក្យស្វែងរកឡើងវិញ។</p>
+            <button onclick="resetFilters()" class="mt-4 inline-flex items-center px-4 py-2 bg-emerald-900 text-white text-xs font-bold rounded-xl hover:bg-emerald-950 transition-colors font-khmer">
+                កំណត់ឡើងវិញ (Reset Filters)
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer with Owner (ប៉ិច រ៉ី) & Shop Verification -->
+    <footer class="bg-emerald-950 text-gray-300 text-xs mt-16 border-t border-emerald-900 font-khmer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-9 h-9 bg-terracotta-500 text-white rounded-lg flex items-center justify-center font-bold text-lg">ប</div>
+                        <span class="font-extrabold text-white text-base">ប៉ិច រ៉ី អាតេលីយេ — PECH REY</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-[11px]">
+                        ហាងសម្លៀកបំពាក់បុរស និង នារី ម៉ូដទាន់សម័យ គុណភាពខ្ពស់ ផ្តល់ជូននូវការកុម្មង់តាមទំហំ (សេរី/Size), ទម្ងន់ (គីឡូ/kg) និង ពណ៌ច្រើនជម្រើស។
+                    </p>
+                    <div class="p-3 bg-emerald-900/60 rounded-xl border border-emerald-800 text-[11px] space-y-1">
+                        <div class="text-amber-300 font-bold"><i class="fa-solid fa-user-check"></i> ម្ចាស់ទំនិញ: ប៉ិច រ៉ី (Pech Rey)</div>
+                        <div class="text-gray-300"><i class="fa-solid fa-phone"></i> ទូរស័ព្ទ: 088 901 8167 / 097 777 8888</div>
+                        <div class="text-gray-400"><i class="fa-solid fa-envelope"></i>pichrey@pichrey-atelier.com</div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider text-terracotta-400">ទីតាំងហាងផ្ទាល់ (Shop Location)</h4>
+                    <p class="text-gray-300 leading-relaxed text-[11px]">
+                        <i class="fa-solid fa-location-dot text-terracotta-400 mr-1"></i> ផ្ទះលេខ 128, ផ្លូវ 271, សង្កាត់ទួលទំពូង, ខណ្ឌចំការមន, រាជធានីភ្នំពេញ (Phnom Penh, Cambodia)
+                    </p>
+                    <div class="pt-2">
+                        <span class="block text-gray-400 text-[10px] uppercase font-bold mb-1">ធនាគារគាំទ្រការទូទាត់ (Cambodian Banks):</span>
+                        <div class="flex flex-wrap gap-2 text-white font-bold text-[10px]">
+                            <span class="bg-blue-900 px-2 py-1 rounded">ABA Bank</span>
+                            <span class="bg-sky-800 px-2 py-1 rounded">ACLEDA</span>
+                            <span class="bg-emerald-700 px-2 py-1 rounded">Wing Bank</span>
+                            <span class="bg-amber-600 px-2 py-1 rounded">PKS Bank</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider text-terracotta-400">ការធានា & សេវាកម្ម</h4>
+                    <ul class="space-y-2 text-[11px] text-gray-400">
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 mr-1"></i> ពិនិត្យទំនិញ និង ឈ្មោះ/ចំនួន មុនបង់ប្រាក់</li>
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 mr-1"></i> ដឹកជញ្ជូនរហ័ស 24-48 ម៉ោង គ្រប់ខេត្ត/ក្រុង</li>
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 mr-1"></i> ជ្រើសរើសតាម គីឡូ (kg) & សេរីទំហំបានច្បាស់លាស់</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-emerald-900 mt-8 pt-6 text-center text-gray-400 text-[11px]">
+                 2026 PECH REY ATELIER. រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ ម្ចាស់ទំនិញ: ប៉ិច រ៉ី (Pech Rey)។
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Product Customizer Modal (សេរី/ទំហំ, គីឡូ, ពណ៌) -->
+    <div id="customizer-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/70 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl relative animate-slide-up">
+            <button onclick="closeCustomizerModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-gray-700"></i>
+            </button>
+            <div id="customizer-content" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Dynamically populated product customizer view -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cambodian Banks Quick Info Modal (កន្លែង Payment and Transition តាមធនាគារខ្មែរ) -->
+    <div id="bank-info-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative animate-slide-up font-khmer">
+            <button onclick="toggleBankInfoModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="flex items-center gap-3 pb-4 mb-4 border-b border-gray-200">
+                <div class="w-10 h-10 bg-amber-500 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-950">គណនីធនាគារខ្មែរសម្រាប់ទូទាត់ (Cambodian Bank Accounts)</h3>
+                    <p class="text-xs text-gray-500">ម្ចាស់គណនី: <strong class="text-emerald-900">ប៉ិច រ៉ី (Pech Rey)</strong> — ABA, ACLEDA, Wing & PKS</p>
+                </div>
+            </div>
+
+            <!-- Currency Selector in Info Hub -->
+            <div class="flex justify-between items-center bg-amber-50 p-3 rounded-xl mb-4 border border-amber-200/60">
+                <span class="text-xs text-amber-900 font-bold"><i class="fa-solid fa-money-bill-transfer mr-1"></i> អត្រាប្តូរប្រាក់: $1.00 = 4,100 ៛</span>
+                <div class="flex items-center gap-1 bg-white p-1 rounded-lg border border-gray-300 text-xs font-bold">
+                    <button onclick="setHubBankCurr('USD')" id="hub-btn-usd" class="px-3 py-1 rounded bg-emerald-900 text-white">USD ($)</button>
+                    <button onclick="setHubBankCurr('KHR')" id="hub-btn-khr" class="px-3 py-1 rounded text-gray-600">KHR (៛)</button>
+                </div>
+            </div>
+
+            <!-- 4 Cambodian Banks Display Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="hub-bank-list">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center text-xs">
+                <span class="text-gray-500"><i class="fa-solid fa-shield-halved text-emerald-700 mr-1"></i> ការផ្ទេរប្រាក់សុវត្ថិភាព 100%</span>
+                <button onclick="toggleBankInfoModal()" class="bg-emerald-900 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-emerald-950">
+                    យល់ព្រម (OK)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide-Over Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+        <div id="cart-backdrop" onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+            <div id="cart-panel" class="w-screen max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+                
+                <!-- Drawer Header -->
+                <div class="p-5 border-b border-gray-200 flex items-center justify-between bg-emerald-900 text-white font-khmer">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-xl text-terracotta-400"></i>
+                        <h2 class="text-base font-bold">កន្ត្រកទំនិញ (Cart)</h2>
+                        <span id="cart-drawer-count" class="bg-terracotta-500 text-white text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="p-1.5 text-white/80 hover:text-white rounded-full hover:bg-emerald-800 transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Dual Currency Banner -->
+                <div class="bg-amber-50 px-5 py-2.5 border-b border-amber-200/60 flex justify-between items-center text-xs text-amber-900 font-khmer">
+                    <span><i class="fa-solid fa-coins text-amber-600 mr-1"></i> អត្រាប្តូរប្រាក់: $1.00 = 4,100 ៛</span>
+                    <span class="font-bold text-emerald-900">ចែកតាមប្រភេទ (By Category)</span>
+                </div>
+
+                <!-- Cart Items List (grouped by Category) -->
+                <div id="cart-items-container" class="flex-grow overflow-y-auto p-5 space-y-4">
+                    <!-- Cart items populated here -->
+                </div>
+
+                <!-- Empty Cart View -->
+                <div id="empty-cart-view" class="flex-grow flex flex-col items-center justify-center p-6 text-center">
+                    <div class="w-20 h-20 bg-emerald-50 text-emerald-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-basket-shopping text-3xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base font-khmer">កន្ត្រកទំនិញទទេរ</h3>
+                    <p class="text-xs text-gray-500 mt-1 max-w-xs font-khmer">សូមជ្រើសរើសសម្លៀកបំពាក់ និង កំណត់ទំហំ គីឡូ ពណ៌ដែលអ្នកពេញចិត្ត។</p>
+                </div>
+
+                <!-- Cart Footer & Checkout Action -->
+                <div id="cart-footer" class="p-5 border-t border-gray-200 bg-gray-50 space-y-4 hidden">
+                    <div class="space-y-1.5 text-xs font-khmer">
+                        <div class="flex justify-between text-gray-600">
+                            <span>សរុប (Subtotal USD)</span>
+                            <span id="cart-subtotal-usd" class="font-bold text-gray-900">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-600">
+                            <span>សរុបរៀល (Subtotal KHR)</span>
+                            <span id="cart-subtotal-khr" class="font-bold text-emerald-900">0 ៛</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" class="w-full bg-emerald-900 text-white py-3.5 rounded-xl font-bold text-xs hover:bg-emerald-950 shadow-lg transition-all flex items-center justify-center gap-2 font-khmer">
+                        <span>បន្តទៅកាន់ការបំពេញទីតាំង & ទូទាត់</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Checkout & Cambodian Bank Payment Modal (ទីតាំងអតិថិជន, ថ្ងៃ ខែ ម៉ោង, ឈ្មោះ/ចំនួនទំនិញ) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative animate-slide-up max-h-[90vh] overflow-y-auto font-khmer">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div id="checkout-form-step">
+                <!-- Step Header -->
+                <div class="flex items-center gap-3 pb-4 mb-6 border-b border-gray-200">
+                    <div class="w-10 h-10 bg-emerald-900 text-white rounded-xl flex items-center justify-center font-bold text-sm">
+                        1/2
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-emerald-950">ទីតាំងអតិថិជន, កាលបរិច្ឆេទ & ការទូទាត់ធនាគារខ្មែរ</h3>
+                        <p class="text-xs text-gray-500"> Customer Delivery Location, Date/Time & Cambodian Bank Payment</p>
+                    </div>
+                </div>
+
+                <form onsubmit="handleCheckoutSubmit(event)" class="space-y-5">
+                    
+                    <!-- Itemized Purchased Products Breakdown Table (បង្ហាញឈ្មោះផលិតផល និងចំនួនដែលបានទិញ) -->
+                    <div class="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-200 space-y-3">
+                        <h4 class="text-xs font-bold text-emerald-950 uppercase flex items-center justify-between">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-list-check text-terracotta-500"></i> បញ្ជីផលិតផលដែលត្រូវបញ្ជាទិញ (Order Summary)</span>
+                            <span class="text-[11px] text-emerald-800 font-bold" id="checkout-item-count-badge">0 ទំនិញ</span>
+                        </h4>
+                        
+                        <div class="overflow-x-auto bg-white rounded-xl border border-gray-200">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-gray-100 text-gray-700 font-bold border-b border-gray-200 text-[11px]">
+                                    <tr>
+                                        <th class="p-2.5">ឈ្មោះផលិតផល (Product Name)</th>
+                                        <th class="p-2.5 text-center">សេរី / គីឡូ / ពណ៌</th>
+                                        <th class="p-2.5 text-center">ចំនួន (Qty)</th>
+                                        <th class="p-2.5 text-right">តម្លៃសរុប</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="checkout-items-table-body" class="divide-y divide-gray-100">
+                                    <!-- Dynamic rows of items -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Customer Information -->
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+                        <h4 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-user text-terracotta-500"></i> ព័ត៌មានអតិថិជន (Customer Info)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">ឈ្មោះអតិថិជន *</label>
+                                <input type="text" id="cust-name" required placeholder="ឧទាហរណ៍: ជា សុជាតិ" 
+                                    class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">លេខទូរស័ព្ទទំនាក់ទំនង *</label>
+                                <input type="tel" id="cust-phone" required placeholder="012 345 678" 
+                                    class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Location (ទីតាំងអតិថិជន) -->
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-1.5">
+                                <i class="fa-solid fa-map-pin text-terracotta-500"></i> ទីតាំងដឹកជញ្ជូនអតិថិជន (Delivery Address)
+                            </h4>
+                            <button type="button" onclick="detectGPSLocation()" class="text-[11px] bg-emerald-100 text-emerald-900 font-bold px-2.5 py-1 rounded-lg hover:bg-emerald-200 transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-crosshairs text-terracotta-500"></i> យកទីតាំង GPS បច្ចុប្បន្ន
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">រាជធានី / ខេត្ត *</label>
+                                <select id="cust-city" required class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                                    <option value="ភ្នំពេញ (Phnom Penh)">ភ្នំពេញ (Phnom Penh)</option>
+                                    <option value="សៀមរាប (Siem Reap)">សៀមរាប (Siem Reap)</option>
+                                    <option value="បាត់ដំបង (Battambang)">បាត់ដំបង (Battambang)</option>
+                                    <option value="កំពង់ចាម (Kampong Cham)">កំពង់ចាម (Kampong Cham)</option>
+                                    <option value="ព្រះសីហនុ (Preah Sihanouk)">ព្រះសីហនុ (Preah Sihanouk)</option>
+                                    <option value="កំពត (Kampot)">កំពត (Kampot)</option>
+                                    <option value="ខេត្តផ្សេងៗ (Other Province)">ខេត្តផ្សេងៗ (Other Province)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">អាសយដ្ឋានលម្អិត (ផ្ទះ/ផ្លូវ/ខណ្ឌ) *</label>
+                                <input type="text" id="cust-address" required placeholder="ឧទាហរណ៍: ផ្ទះ 45 ផ្លូវ 310 សង្កាត់បឹងកេងកង" 
+                                    class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date & Time Picker (ថ្ងៃ ខែ ម៉ោង) -->
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+                        <h4 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-1.5">
+                            <i class="fa-solid fa-calendar-day text-terracotta-500"></i> កាលបរិច្ឆេទ & ម៉ោងដឹកជញ្ជូន (Delivery Date & Time)
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">ថ្ងៃ ខែ ដឹកជញ្ជូន *</label>
+                                <input type="date" id="cust-date" required 
+                                    class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">ម៉ោងដឹកជញ្ជូន *</label>
+                                <select id="cust-time" required class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                                    <option value="8:00 AM - 11:30 AM (ព្រឹក)">8:00 AM - 11:30 AM (ព្រឹក)</option>
+                                    <option value="1:30 PM - 5:00 PM (រសៀល)">1:30 PM - 5:00 PM (រសៀល)</option>
+                                    <option value="5:30 PM - 8:00 PM (ល្ងាច)">5:30 PM - 8:00 PM (ល្ងាច)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cambodian Bank Payment Selection (ABA, ACLEDA, Wing, PKS Bank) -->
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-1.5">
+                                <i class="fa-solid fa-building-columns text-terracotta-500"></i> ការទូទាត់តាមធនាគារខ្មែរ (Cambodian Bank Payment)
+                            </h4>
+                            <div class="flex items-center gap-1 bg-white p-1 rounded-lg border border-gray-300 text-[11px] font-bold">
+                                <button type="button" onclick="setPayCurrency('USD')" id="curr-btn-usd" class="px-2 py-0.5 rounded bg-emerald-900 text-white">USD ($)</button>
+                                <button type="button" onclick="setPayCurrency('KHR')" id="curr-btn-khr" class="px-2 py-0.5 rounded text-gray-600">KHR (៛)</button>
+                            </div>
+                        </div>
+
+                        <!-- 4 Bank Selector Cards -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="bank-selector">
+                            <label class="bank-card cursor-pointer border-2 border-emerald-900 bg-white p-2.5 rounded-xl text-center flex flex-col items-center justify-center transition-all">
+                                <input type="radio" name="bank" value="ABA Bank" checked onchange="updateBankUI('ABA Bank')" class="hidden">
+                                <span class="font-extrabold text-blue-900 text-xs">ABA Bank</span>
+                                <span class="text-[9px] text-gray-500">000 123 456</span>
+                            </label>
+
+                            <label class="bank-card cursor-pointer border border-gray-300 bg-white p-2.5 rounded-xl text-center flex flex-col items-center justify-center transition-all">
+                                <input type="radio" name="bank" value="ACLEDA Bank" onchange="updateBankUI('ACLEDA Bank')" class="hidden">
+                                <span class="font-extrabold text-sky-800 text-xs">ACLEDA</span>
+                                <span class="text-[9px] text-gray-500">012 888 999</span>
+                            </label>
+
+                            <label class="bank-card cursor-pointer border border-gray-300 bg-white p-2.5 rounded-xl text-center flex flex-col items-center justify-center transition-all">
+                                <input type="radio" name="bank" value="Wing Bank" onchange="updateBankUI('Wing Bank')" class="hidden">
+                                <span class="font-extrabold text-emerald-600 text-xs">Wing Bank</span>
+                                <span class="text-[9px] text-gray-500">097 777 8888</span>
+                            </label>
+
+                            <label class="bank-card cursor-pointer border border-gray-300 bg-white p-2.5 rounded-xl text-center flex flex-col items-center justify-center transition-all">
+                                <input type="radio" name="bank" value="PKS Bank (ប្រាសាក់)" onchange="updateBankUI('PKS Bank')" class="hidden">
+                                <span class="font-extrabold text-amber-700 text-xs">PKS Bank</span>
+                                <span class="text-[9px] text-gray-500">100 888 777</span>
+                            </label>
+                        </div>
+
+                        <!-- KHQR & Transfer Info Container -->
+                        <div class="bg-white p-4 rounded-xl border border-gray-300 flex flex-col sm:flex-row items-center gap-4">
+                            <div class="w-32 h-32 bg-gray-100 border-2 border-emerald-900 rounded-xl flex flex-col items-center justify-center p-2 text-center relative group">
+                                <div class="w-full h-full bg-slate-900 text-white rounded-lg flex flex-col items-center justify-center p-1 font-mono text-[9px] leading-tight">
+                                    <i class="fa-solid fa-qrcode text-3xl mb-1 text-terracotta-400"></i>
+                                    <span class="font-bold tracking-widest text-amber-300">KHQR PAY</span>
+                                    <span id="qr-amount-display" class="text-[8px] mt-0.5">$0.00</span>
+                                </div>
+                            </div>
+
+                            <div class="flex-grow space-y-1.5 text-xs text-gray-700">
+                                <div class="font-bold text-emerald-950 flex items-center justify-between">
+                                    <span id="selected-bank-name">ABA Bank</span>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded font-bold">PECH RY STORE</span>
+                                </div>
+                                <div class="text-[11px]">
+                                    ម្ចាស់គណនី: <strong class="text-amber-600">PECH REY (ប៉ិច រ៉ី)</strong>
+                                </div>
+                                <div class="flex items-center justify-between bg-gray-100 p-2 rounded-lg font-mono font-bold text-gray-900">
+                                    <span id="bank-acc-num">000 123 456 (USD)</span>
+                                    <button type="button" onclick="copyBankAcc()" class="text-emerald-800 text-xs hover:text-emerald-950 font-normal">
+                                        <i class="fa-solid fa-copy"></i> ចម្លង
+                                    </button>
+                                </div>
+                                <div class="text-[11px] text-terracotta-600 font-bold">
+                                    ចំនួនទឹកប្រាក់ត្រូវបង់សរុប: <span id="checkout-total-display" class="text-sm font-extrabold">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reference ID Input & Payment Slip Preview Upload -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">លេខកូដប្រតិបត្តិការ (Transaction Ref / Slip No.)</label>
+                                <input type="text" id="cust-tran-ref" placeholder="ឧទាហរណ៍: TRX-998241" 
+                                    class="w-full bg-white border border-gray-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-900 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">រូបភាពបង្កាន់ដៃ (Upload Slip - Optional)</label>
+                                <input type="file" id="cust-slip-file" accept="image/*" onchange="previewSlipImage(event)" 
+                                    class="w-full text-xs text-gray-500 bg-white border border-gray-300 rounded-xl p-1.5 focus:outline-none">
+                            </div>
+                        </div>
+                        <div id="slip-preview-box" class="hidden text-center pt-2">
+                            <span class="text-[10px] text-gray-500 block mb-1">មើលគំរូរូបភាពបង្កាន់ដៃបង់ប្រាក់:</span>
+                            <img id="slip-preview-img" src="" alt="Slip Preview" class="max-h-28 mx-auto rounded-lg border border-gray-300 shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- Submit Order Button -->
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-emerald-900 text-white py-4 rounded-2xl font-bold text-sm hover:bg-emerald-950 shadow-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up text-terracotta-400 text-base"></i>
+                            <span>បញ្ជូនការបញ្ជាទិញទៅ Cloud (Submit Order)</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Checkout Success View -->
+            <div id="checkout-success-step" class="hidden text-center py-8 space-y-4">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto animate-bounce shadow-md">
+                    <i class="fa-solid fa-circle-check text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-gray-900">ការបញ្ជាទិញជោគជ័យ!</h3>
+                <p class="text-xs text-gray-600 max-w-md mx-auto leading-relaxed">
+                    ព័ត៌មាននៃការបញ្ជាទិញ ឈ្មោះ និង ចំនួនផលិតផល ត្រូវបានរក្សាទុកនៅលើ Cloud Database រួចរាល់។ ម្ចាស់ទំនិញ <strong>ប៉ិច រ៉ី (Pech Rey)</strong> នឹងទំនាក់ទំនងរៀបចំដឹកជញ្ជូន។
+                </p>
+
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 max-w-md mx-auto text-left text-xs space-y-2">
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">លេខកូដកុម្មង់ (Order ID):</span>
+                        <span class="font-mono font-bold text-emerald-900" id="success-order-id">#PR-8821</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">ម្ចាស់ទំនិញ (Shop Owner):</span>
+                        <span class="font-bold text-gray-900">ប៉ិច រ៉ី (Pech Rey)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">ធនាគារដែលបានជ្រើសរើស:</span>
+                        <span class="font-bold text-gray-900" id="success-bank-name">ABA Bank</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">កាលបរិច្ឆេទដឹក:</span>
+                        <span class="font-bold text-gray-900" id="success-date-time">-</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex gap-3 justify-center">
+                    <button onclick="closeCheckoutModal(); openCloudOrdersModal();" class="bg-emerald-900 text-white px-6 py-3 rounded-xl text-xs font-bold hover:bg-emerald-950 transition-all">
+                        <i class="fa-solid fa-cloud mr-1"></i> មើលបញ្ជីកុម្មង់ Cloud Orders
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Cloud Orders Tracker Modal (បង្ហាញឈ្មោះផលិតផល និងចំនួនដែលបានទិញ) -->
+    <div id="cloud-orders-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full p-6 shadow-2xl relative animate-slide-up max-h-[85vh] flex flex-col font-khmer">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-900 text-white rounded-xl flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-cloud text-xl text-terracotta-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-emerald-950">ប្រវត្តិការបញ្ជាទិញ Cloud (Cloud Orders History)</h3>
+                        <p class="text-xs text-gray-500">រក្សាទុកឈ្មោះ និង ចំនួនផលិតផលនៅលើ Firebase Firestore</p>
+                    </div>
+                </div>
+                <button onclick="closeCloudOrdersModal()" class="p-2 text-gray-400 hover:text-black">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Orders Container -->
+            <div id="cloud-orders-list" class="flex-grow overflow-y-auto py-4 space-y-4">
+                <!-- Dynamically populated cloud orders -->
+            </div>
+
+            <div class="pt-4 border-t border-gray-200 flex justify-between items-center text-xs text-gray-500">
+                <span><i class="fa-solid fa-sync text-emerald-600 animate-spin mr-1"></i> ភ្ជាប់ទិន្នន័យ Real-time ជាមួយ Firebase</span>
+                <button onclick="closeCloudOrdersModal()" class="bg-gray-200 text-gray-800 font-bold px-4 py-2 rounded-xl hover:bg-gray-300">
+                    បិទ (Close)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Location Modal (ទីតាំងហាង - ប៉ិច រ៉ី) -->
+    <div id="location-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative animate-slide-up text-center font-khmer space-y-4">
+            <button onclick="toggleStoreLocationModal()" class="absolute top-4 right-4 p-2 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="w-14 h-14 bg-emerald-100 text-emerald-900 rounded-2xl flex items-center justify-center mx-auto">
+                <i class="fa-solid fa-location-dot text-2xl text-terracotta-500"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-emerald-950">ទីតាំងហាង ប៉ិច រ៉ី អាតេលីយេ</h3>
+            
+            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 text-xs text-left space-y-2">
+                <p><strong>អាសយដ្ឋាន:</strong> ផ្ទះលេខ 128, ផ្លូវ 271, សង្កាត់ទួលទំពូង, ខណ្ឌចំការមន, រាជធានីភ្នំពេញ</p>
+                <p><strong>ម្ចាស់ហាង:</strong> <span class="text-amber-600 font-bold">ប៉ិច រ៉ី (Pech Rey)</span></p>
+                <p><strong>ទូរស័ព្ទ:</strong> 012 888 999 / 097 777 8888</p>
+                <p><strong>ម៉ោងបើកទ្វារ:</strong> 8:00 AM - 8:30 PM រៀងរាល់ថ្ងៃ</p>
+            </div>
+
+            <a href="https://maps.google.com/?q=Tuol+Tompoung+Phnom+Penh" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center w-full bg-emerald-900 text-white font-bold py-3 rounded-xl text-xs hover:bg-emerald-950 transition-colors gap-2">
+                <i class="fa-solid fa-map-marked-alt text-terracotta-400"></i> បើកមើលក្នុង Google Maps ផ្ទាល់
+            </a>
+        </div>
+    </div>
+
+    <!-- NothingVication Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Firebase SDK Imports -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
+            ? JSON.parse(__firebase_config) 
+            : {
+                apiKey: "AIzaSyDemoConfigKeyForPechRyApp01",
+                authDomain: "pechry-atelier.firebaseapp.com",
+                projectId: "pechry-atelier",
+                storageBucket: "pechry-atelier.appspot.com",
+                messagingSenderId: "1234567890",
+                appId: "1:1234567890:web:abcdef123456"
+            };
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'pechry-atelier-app';
+        
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                signInWithCustomToken(auth, __initial_auth_token).then(cred => {
+                    currentUser = cred.user;
+                    initRealtimeCloudOrders();
+                }).catch(() => {
+                    signInAnonymously(auth).then(cred => {
+                        currentUser = cred.user;
+                        initRealtimeCloudOrders();
+                    });
+                });
+            } else {
+                signInAnonymously(auth).then(cred => {
+                    currentUser = cred.user;
+                    initRealtimeCloudOrders();
+                }).catch(err => console.warn("Firebase Auth fallback mode"));
+            }
+        } catch (e) {
+            console.warn("Firestore setup initialized in offline backup mode", e);
+        }
+
+        function initRealtimeCloudOrders() {
+            if (!db || !appId) return;
+            const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+            
+            onSnapshot(ordersRef, (snapshot) => {
+                const cloudOrders = [];
+                snapshot.forEach((doc) => {
+                    cloudOrders.push({ id: doc.id, ...doc.data() });
+                });
+                cloudOrders.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+                window.cachedCloudOrders = cloudOrders;
+                window.updateCloudOrdersUI(cloudOrders);
+            }, (error) => {
+                console.warn("Firestore snapshot query error:", error);
+            });
+        }
+
+        window.saveOrderToFirestore = async function(orderData) {
+            if (!db) {
+                if (!window.cachedCloudOrders) window.cachedCloudOrders = [];
+                window.cachedCloudOrders.unshift(orderData);
+                window.updateCloudOrdersUI(window.cachedCloudOrders);
+                return true;
+            }
+
+            try {
+                const ordersRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                await addDoc(ordersRef, {
+                    ...orderData,
+                    timestamp: Date.now()
+                });
+                return true;
+            } catch (err) {
+                console.error("Error saving order to Firestore:", err);
+                return false;
+            }
+        };
+    </script>
+
+    <!-- Main JavaScript Logic -->
+    <script>
+        const KHR_RATE = 4100;
+
+        // Expanded 16+ Product Catalog (Men & Women)
+        const products = [
+            // Men's Products (1 - 8)
+            {
+                id: 1,
+                name: "អាវធំអ៊ីតាលី បុរស (Men's Italian Trench Coat)",
+                gender: "men",
+                subcategory: "outerwear",
+                priceUSD: 45.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800",
+                sizes: ["M", "L", "XL", "XXL"],
+                weights: ["50-60kg", "60-70kg", "70-85kg"],
+                colors: [
+                    { name: "ខ្មៅ (Black)", hex: "#18181b" },
+                    { name: "ខៀវចាស់ (Navy)", hex: "#1e3a8a" },
+                    { name: "លឿងខ្ចី (Beige)", hex: "#d4a373" }
+                ],
+                desc: "អាវធំក្រាស់ស្អាត ផលិតពីសាច់ក្រណាត់គុណភាពខ្ពស់ មិនជ្រួញ មិនបែកព្រុយ សម្រាប់បុរសទាន់សម័យ។"
+            },
+            {
+                id: 2,
+                name: "អាវដៃវែង Hooded បុរស (Men's Organic Fleece Hoodie)",
+                gender: "men",
+                subcategory: "tops",
+                priceUSD: 22.00,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "XL"],
+                weights: ["45-55kg", "55-68kg", "68-80kg"],
+                colors: [
+                    { name: "បៃតង (Olive)", hex: "#3f6212" },
+                    { name: "ប្រផេះ (Grey)", hex: "#64748b" },
+                    { name: "ខ្មៅ (Black)", hex: "#18181b" }
+                ],
+                desc: "អាវរងាដៃវែង Hooded សាច់កប្បាស 450gsm ក្រាស់ទន់ល្មើយ សម្រាប់រដូវត្រជាក់ ឬពាក់ដើរលេង។"
+            },
+            {
+                id: 3,
+                name: "ខោសាច់ក្រណាត់ បុរស (Men's Chino Smart Pants)",
+                gender: "men",
+                subcategory: "bottoms",
+                priceUSD: 24.00,
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=800",
+                sizes: ["M", "L", "XL", "XXL"],
+                weights: ["50-60kg", "60-70kg", "70-85kg"],
+                colors: [
+                    { name: "ខៀវចាស់ (Navy)", hex: "#1e3a8a" },
+                    { name: "លឿងខ្ចី (Khaki)", hex: "#d4a373" }
+                ],
+                desc: "ខោសាច់ក្រណាត់ចិន chino យឺតល្មម សម្រួលដល់ការផ្លាស់ទី មិនស្អិតជើង។"
+            },
+            {
+                id: 4,
+                name: "អាវសាត់កាតុងដៃខ្លី បុរស (Classic Men's Oxford Polo)",
+                gender: "men",
+                subcategory: "tops",
+                priceUSD: 18.00,
+                rating: 4.6,
+                image: "https://images.unsplash.com/photo-1625910513413-5acc215746ee?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "XL"],
+                weights: ["48-58kg", "58-68kg", "68-78kg"],
+                colors: [
+                    { name: "ស (White)", hex: "#ffffff" },
+                    { name: "ខៀវស្រាល (Light Blue)", hex: "#38bdf8" }
+                ],
+                desc: "អាវយឺតកក្បាល Polo សាច់ក្រណាត់ខ្យល់ចេញចូលបានល្អ ពាក់ត្រជាក់ស្រួលខ្លួនរាល់ថ្ងៃ។"
+            },
+            {
+                id: 5,
+                name: "អាវក្រៅ Jean បុរស (Vintage Men's Denim Jacket)",
+                gender: "men",
+                subcategory: "outerwear",
+                priceUSD: 36.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&q=80&w=800",
+                sizes: ["M", "L", "XL"],
+                weights: ["52-65kg", "65-78kg", "78-88kg"],
+                colors: [
+                    { name: "ខៀវជិន (Classic Blue Denim)", hex: "#2563eb" },
+                    { name: "ខ្មៅជិន (Washed Black)", hex: "#27272a" }
+                ],
+                desc: "អាវក្រៅ Jean ស្ដាយបែប Vintage សាច់ជិនក្រាស់រឹងមាំ ម៉ូដបុរសស្អាតបាត។"
+            },
+            {
+                id: 6,
+                name: "ខោខូវប៊យ ជើងត្រង់ បុរស (Men's Slim Straight Jeans)",
+                gender: "men",
+                subcategory: "bottoms",
+                priceUSD: 28.00,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=800",
+                sizes: ["M", "L", "XL", "XXL"],
+                weights: ["50-62kg", "62-75kg", "75-88kg"],
+                colors: [
+                    { name: "ខៀវ (Indigo Blue)", hex: "#1d4ed8" },
+                    { name: "ប្រផេះខ្មៅ (Charcoal)", hex: "#3f3f46" }
+                ],
+                desc: "ខោខូវប៊យជើងត្រង់ Slim Cut ពាក់សមឥតខ្ចោះជាមួយស្បែកជើងស្នីកឃឺ។"
+            },
+            {
+                id: 7,
+                name: "ឈុតស៊ុត បុរសធ្វើការ (Men's Business Executive Suit)",
+                gender: "men",
+                subcategory: "dresses",
+                priceUSD: 79.00,
+                rating: 5.0,
+                image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=800",
+                sizes: ["M", "L", "XL", "XXL"],
+                weights: ["55-65kg", "65-78kg", "78-90kg"],
+                colors: [
+                    { name: "ខ្មៅប្រណិត (Jet Black)", hex: "#09090b" },
+                    { name: "ប្រផេះចាស់ (Charcoal Grey)", hex: "#475569" }
+                ],
+                desc: "ឈុតអាវស៊ុតបុរសធ្វើការ & ចូលរួមពិធីផ្លូវការ កាត់ដេរដោយជាងជំនាញ សាច់ក្រណាត់នាំចូល។"
+            },
+            {
+                id: 8,
+                name: "អាវសឺមីដៃវែង បុរស (Men's Royal Cotton Shirt)",
+                gender: "men",
+                subcategory: "tops",
+                priceUSD: 25.00,
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "XL"],
+                weights: ["48-58kg", "58-70kg", "70-82kg"],
+                colors: [
+                    { name: "ស (Pure White)", hex: "#ffffff" },
+                    { name: "ខៀវខ្ចី (Sky Blue)", hex: "#7dd3fc" }
+                ],
+                desc: "អាវសឺមីដៃវែងសាច់កប្បាស 100% មិនងាយជ្រួញ ស្រួលអ៊ុត ពាក់ធ្វើការទាន់សម័យ។"
+            },
+
+            // Women's Products (9 - 16)
+            {
+                id: 9,
+                name: "រ៉ូបរាត្រីសមោសរ នារី (Silk Evening Dress)",
+                gender: "women",
+                subcategory: "dresses",
+                priceUSD: 38.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "Free Size"],
+                weights: ["40-50kg", "50-60kg", "60-70kg"],
+                colors: [
+                    { name: "ក្រហម (Maroon)", hex: "#881337" },
+                    { name: "ខ្មៅ (Black)", hex: "#18181b" },
+                    { name: "ស (White)", hex: "#ffffff" }
+                ],
+                desc: "រ៉ូបរាត្រីសមោសរសាច់សូត្រទន់រលោង ឌីសាញយ៉ាងប្រណិត លើកសម្រស់នារីអោយកាន់តែលេចធ្លោ។"
+            },
+            {
+                id: 10,
+                name: "អាវក្រៅ Blazer នារី (Modern Women's Blazer)",
+                gender: "women",
+                subcategory: "outerwear",
+                priceUSD: 35.00,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L"],
+                weights: ["42-52kg", "52-62kg"],
+                colors: [
+                    { name: "ខ្មៅ (Black)", hex: "#18181b" },
+                    { name: "លឿងខ្ចី (Cream)", hex: "#fef08a" }
+                ],
+                desc: "អាវក្រៅ Blazer នារី ធ្វើការ ឬប្រជុំ ម៉ូដទាន់សម័យ ទន់ស្រួលពាក់ និងស័ក្តិសមគ្រប់កាលៈទេសៈ។"
+            },
+            {
+                id: 11,
+                name: "សំពត់វែង នារី (High-Waist Pleated Skirt)",
+                gender: "women",
+                subcategory: "bottoms",
+                priceUSD: 19.00,
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "Free Size"],
+                weights: ["40-52kg", "52-65kg"],
+                colors: [
+                    { name: "ផ្កាឈូក (Pink)", hex: "#ec4899" },
+                    { name: "ខ្មៅ (Black)", hex: "#18181b" }
+                ],
+                desc: "សំពត់ផ្លីសេចង្កេះខ្ពស់ ស្អាតបាត សម្រាប់ពាក់ធ្វើការ ឬដើរលេងចុងសប្តាហ៍។"
+            },
+            {
+                id: 12,
+                name: "អាវយឺតដៃខ្លី នារី (Women's Pastel Crop Top)",
+                gender: "women",
+                subcategory: "tops",
+                priceUSD: 14.00,
+                rating: 4.6,
+                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L"],
+                weights: ["40-48kg", "48-58kg"],
+                colors: [
+                    { name: "លឿងស្រាល (Pastel Yellow)", hex: "#fef08a" },
+                    { name: "ខៀវស្រាល (Pastel Blue)", hex: "#bae6fd" }
+                ],
+                desc: "អាវយឺតដៃខ្លីសាច់ទន់យឺត Pastel ស្អាតស៊ីវិល័យ ពាក់ដើរលេងទាន់សម័យ។"
+            },
+            {
+                id: 13,
+                name: "រ៉ូបផ្កាព្រៃ នារី (Floral Summer Midi Dress)",
+                gender: "women",
+                subcategory: "dresses",
+                priceUSD: 29.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "Free Size"],
+                weights: ["42-52kg", "52-64kg"],
+                colors: [
+                    { name: "ផ្កាឈូកស្រាល (Floral Pink)", hex: "#f472b6" },
+                    { name: "សផ្កា (White Floral)", hex: "#ffffff" }
+                ],
+                desc: "រ៉ូបផ្កាព្រៃ Midi សម្រាប់រដូវក្តៅ សាច់ក្រណាត់ខ្យល់ចេញចូលបានល្អ ស្រស់ស្អាតខ្លាំង។"
+            },
+            {
+                id: 14,
+                name: "អាវរងាសាច់ចាត់ នារី (Soft Knit Cardigan)",
+                gender: "women",
+                subcategory: "outerwear",
+                priceUSD: 23.00,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "Free Size"],
+                weights: ["40-55kg", "55-68kg"],
+                colors: [
+                    { name: "កាហ្វេ (Beige Coffee)", hex: "#d4a373" },
+                    { name: "ស (White)", hex: "#ffffff" }
+                ],
+                desc: "អាវរងាសាច់ចាត់ Cardigan ឡេវមុខ ទន់ល្មើយ សម្រួលដល់ការផ្គូផ្គងជាមួយខោ ឬសំពត់។"
+            },
+            {
+                id: 15,
+                name: "ខោខូវប៊យចង្កេះខ្ពស់ នារី (Women's High-Waist Mom Jeans)",
+                gender: "women",
+                subcategory: "bottoms",
+                priceUSD: 26.00,
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L"],
+                weights: ["42-52kg", "52-62kg"],
+                colors: [
+                    { name: "ខៀវខ្ចី (Light Wash Blue)", hex: "#60a5fa" },
+                    { name: "ខ្មៅ (Black Denim)", hex: "#18181b" }
+                ],
+                desc: "ខោខូវប៊យចង្កេះខ្ពស់បង្រួមក្បាលពោះ រាងស្អាត ជួយអោយជើងមើលទៅវែង។"
+            },
+            {
+                id: 16,
+                name: "ឈុតអាវ & ខោសាច់សូត្រ នារី (Women's Silk Satin Lounge Set)",
+                gender: "women",
+                subcategory: "dresses",
+                priceUSD: 32.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800",
+                sizes: ["S", "M", "L", "Free Size"],
+                weights: ["40-52kg", "52-65kg"],
+                colors: [
+                    { name: "ខៀវស្រាល (Sky Silk)", hex: "#38bdf8" },
+                    { name: "ផ្កាឈូក (Rose Gold)", hex: "#fb7185" }
+                ],
+                desc: "ឈុតអាវ & ខោសាច់សូត្រ Satin រលោង សម្រាកនៅផ្ទះ ឬដើរលេងក្រៅ ផាសុកភាពខ្ពស់។"
+            }
+        ];
+
+        // Global State
+        let cart = [];
+        let activeGender = 'all';
+        let activeSubcat = 'all';
+        let searchQuery = '';
+        let activeSort = 'featured';
+        let payCurrency = 'USD'; // 'USD' or 'KHR'
+        let hubBankCurrency = 'USD';
+
+        // Customizer Modal State
+        let selectedProductForCustom = null;
+        let selectedSize = '';
+        let selectedWeight = '';
+        let selectedColor = null;
+        let quickCartOpen = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+            renderHubBankList();
+
+            // Close quick cart dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                const wrapper = document.getElementById('header-cart-wrapper');
+                if (wrapper && !wrapper.contains(e.target)) {
+                    setQuickCartOpen(false);
+                }
+            });
+
+            const cartWrapper = document.getElementById('header-cart-wrapper');
+            if (cartWrapper) {
+                cartWrapper.addEventListener('mouseleave', () => {
+                    setQuickCartOpen(false);
+                });
+            }
+            
+            // Set default delivery date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const dateStr = tomorrow.toISOString().split('T')[0];
+            const dateInput = document.getElementById('cust-date');
+            if (dateInput) dateInput.value = dateStr;
+        });
+
+        function formatKHR(usd) {
+            return (usd * KHR_RATE).toLocaleString() + " ៛";
+        }
+
+        const CATEGORY_LABELS = {
+            tops: "អាវយឺត & សឺមី (Tops)",
+            outerwear: "អាវក្រៅ & Blazer (Outerwear)",
+            bottoms: "ខោ & សំពត់ (Bottoms)",
+            dresses: "រ៉ូប & ឈុតស៊ុត (Dresses & Suits)"
+        };
+
+        function getCategoryLabel(subcat) {
+            return CATEGORY_LABELS[subcat] || "ប្រភេទទូទៅ (General)";
+        }
+
+        function groupCartByCategory(cartList) {
+            const groups = {};
+            cartList.forEach(item => {
+                const key = item.subcategory || 'tops';
+                if (!groups[key]) {
+                    groups[key] = {
+                        subcategory: key,
+                        label: getCategoryLabel(key),
+                        items: [],
+                        totalQty: 0,
+                        totalUSD: 0
+                    };
+                }
+                groups[key].items.push(item);
+                groups[key].totalQty += item.qty;
+                groups[key].totalUSD += item.priceUSD * item.qty;
+            });
+            return Object.values(groups);
+        }
+
+        // Render Product Catalog
+        function filterGender(gender) {
+            activeGender = gender;
+            document.querySelectorAll('.gender-btn').forEach(btn => {
+                if (btn.dataset.g === gender) {
+                    btn.className = "gender-btn active-gender bg-emerald-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all font-khmer shadow-sm";
+                } else {
+                    btn.className = "gender-btn bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap transition-all font-khmer";
+                }
+            });
+            renderProducts();
+        }
+
+        function filterSubcategory(sub) {
+            activeSubcat = sub;
+            renderProducts();
+        }
+
+        function handleSearch(val) {
+            searchQuery = val.toLowerCase().trim();
+            renderProducts();
+        }
+
+        function sortProducts(val) {
+            activeSort = val;
+            renderProducts();
+        }
+
+        function resetFilters() {
+            activeGender = 'all';
+            activeSubcat = 'all';
+            searchQuery = '';
+            activeSort = 'featured';
+            document.getElementById('subcat-select').value = 'all';
+            document.getElementById('sort-select').value = 'featured';
+            filterGender('all');
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+
+            let filtered = products.filter(p => {
+                const matchesG = activeGender === 'all' || p.gender === activeGender;
+                const matchesSub = activeSubcat === 'all' || p.subcategory === activeSubcat;
+                const matchesQ = p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
+                return matchesG && matchesSub && matchesQ;
+            });
+
+            if (activeSort === 'price-low') filtered.sort((a, b) => a.priceUSD - b.priceUSD);
+            if (activeSort === 'price-high') filtered.sort((a, b) => b.priceUSD - a.priceUSD);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <div class="bg-white rounded-3xl border border-gray-200/90 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <!-- Image Container -->
+                            <div class="relative aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer" onclick="openCustomizerModal(${item.id})">
+                            <img src="${item.image}" alt="${item.name.replace(/"/g, '&quot;')}" 
+                                onerror="this.src='https://placehold.co/600x750/0F4C5C/ffffff?text=PECH+RY+ATELIER'"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            
+                            <div class="absolute top-3 left-3">
+                                ${item.gender === 'men' 
+                                    ? '<span class="bg-blue-900/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-xs font-khmer"><i class="fa-solid fa-mars"></i> បុរស</span>'
+                                    : '<span class="bg-rose-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-xs font-khmer"><i class="fa-solid fa-venus"></i> នារី</span>'
+                                }
+                            </div>
+
+                            <button onclick="event.stopPropagation(); openCustomizerModal(${item.id});" class="absolute bottom-3 left-3 right-3 bg-white/90 hover:bg-white text-emerald-950 text-xs font-bold py-2.5 rounded-xl shadow-lg transition-all font-khmer flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-sliders text-terracotta-500"></i>
+                                <span>ជ្រើសរើស ទំហំ/គីឡូ/ពណ៌</span>
+                            </button>
+                        </div>
+
+                        <!-- Details -->
+                        <div class="p-4 space-y-1.5 font-khmer">
+                            <div class="flex justify-between text-[11px] text-gray-500 uppercase font-bold">
+                                <span>${item.subcategory}</span>
+                                <span class="text-amber-500"><i class="fa-solid fa-star text-[10px]"></i> ${item.rating}</span>
+                            </div>
+                            <h3 onclick="openCustomizerModal(${item.id})" class="font-bold text-gray-900 text-sm hover:text-emerald-900 transition-colors line-clamp-1 cursor-pointer">
+                                ${item.name}
+                            </h3>
+                            <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed">${item.desc}</p>
+                        </div>
+                    </div>
+
+                    <!-- Price & Action -->
+                    <div class="p-4 pt-0 border-t border-gray-100 mt-2 flex items-center justify-between font-khmer">
+                        <div>
+                            <div class="text-base font-black text-emerald-950">$${item.priceUSD.toFixed(2)}</div>
+                            <div class="text-[11px] font-bold text-terracotta-600">${formatKHR(item.priceUSD)}</div>
+                        </div>
+                        <button onclick="openCustomizerModal(${item.id})" class="bg-emerald-900 hover:bg-emerald-950 text-white p-2.5 rounded-xl transition-all shadow-md">
+                            <i class="fa-solid fa-cart-plus text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Customizer Modal Logic
+        function openCustomizerModal(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+
+            selectedProductForCustom = p;
+            selectedSize = p.sizes[0];
+            selectedWeight = p.weights[0];
+            selectedColor = p.colors[0];
+
+            const modal = document.getElementById('customizer-modal');
+            const container = document.getElementById('customizer-content');
+
+            container.innerHTML = `
+                <div class="bg-gray-100 aspect-square md:aspect-auto">
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:p-8 flex flex-col justify-between font-khmer">
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-terracotta-500 tracking-wider">${p.gender === 'men' ? 'បុរស (Men)' : 'នារី (Women)'}</span>
+                            <h2 class="text-xl font-bold text-emerald-950 mt-1">${p.name}</h2>
+                            <div class="text-2xl font-black text-emerald-900 mt-2">
+                                $${p.priceUSD.toFixed(2)} <span class="text-sm font-bold text-terracotta-600">(${formatKHR(p.priceUSD)})</span>
+                            </div>
+                        </div>
+
+                        <!-- 1. Select Series / Size -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-800 mb-1.5">១. ជ្រើសរើស សេរី / ទំហំ (Size / Series) *</label>
+                            <div class="flex flex-wrap gap-2" id="size-options">
+                                ${p.sizes.map((s, idx) => `
+                                    <button type="button" onclick='selectCustomSize(this, ${JSON.stringify(s)})' 
+                                        class="size-btn font-bold text-xs px-3.5 py-2 rounded-xl border ${idx === 0 ? 'bg-emerald-900 text-white border-emerald-900' : 'bg-gray-100 text-gray-800 border-gray-200 hover:border-gray-400'} transition-all">
+                                        ${s}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- 2. Select Weight -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-800 mb-1.5">២. ជ្រើសរើស ទម្ងន់ / គីឡូ (Weight Range) *</label>
+                            <div class="flex flex-wrap gap-2" id="weight-options">
+                                ${p.weights.map((w, idx) => `
+                                    <button type="button" onclick='selectCustomWeight(this, ${JSON.stringify(w)})' 
+                                        class="weight-btn font-bold text-xs px-3.5 py-2 rounded-xl border ${idx === 0 ? 'bg-emerald-900 text-white border-emerald-900' : 'bg-gray-100 text-gray-800 border-gray-200 hover:border-gray-400'} transition-all">
+                                        ${w}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- 3. Select Color -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-800 mb-1.5">៣. ជ្រើសរើស ពណ៌ (Color) *</label>
+                            <div class="flex flex-wrap gap-3" id="color-options">
+                                ${p.colors.map((c, idx) => `
+                                    <button type="button" onclick='selectCustomColor(this, ${JSON.stringify(c.name)}, ${JSON.stringify(c.hex)})' 
+                                        title="${c.name.replace(/"/g, '&quot;')}"
+                                        class="color-btn flex items-center gap-1.5 text-xs font-semibold p-1.5 pr-3 rounded-xl border ${idx === 0 ? 'border-emerald-900 bg-emerald-50' : 'border-gray-200 bg-gray-50'} transition-all">
+                                        <span class="w-5 h-5 rounded-full border border-gray-300 shadow-xs" style="background-color: ${c.hex}"></span>
+                                        <span>${c.name}</span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-200 space-y-2">
+                        <button onclick="addCustomizedToCart()" class="w-full bg-emerald-900 text-white py-3.5 rounded-2xl font-bold text-xs hover:bg-emerald-950 shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bag-shopping text-terracotta-400"></i>
+                            <span>បញ្ជូលទៅកាន់កន្ត្រកទំនិញ (Add To Cart)</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function selectCustomSize(btn, s) {
+            selectedSize = s;
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.className = 'size-btn font-bold text-xs px-3.5 py-2 rounded-xl border bg-gray-100 text-gray-800 border-gray-200 hover:border-gray-400 transition-all';
+            });
+            btn.className = 'size-btn font-bold text-xs px-3.5 py-2 rounded-xl border bg-emerald-900 text-white border-emerald-900 transition-all';
+        }
+
+        function selectCustomWeight(btn, w) {
+            selectedWeight = w;
+            document.querySelectorAll('.weight-btn').forEach(b => {
+                b.className = 'weight-btn font-bold text-xs px-3.5 py-2 rounded-xl border bg-gray-100 text-gray-800 border-gray-200 hover:border-gray-400 transition-all';
+            });
+            btn.className = 'weight-btn font-bold text-xs px-3.5 py-2 rounded-xl border bg-emerald-900 text-white border-emerald-900 transition-all';
+        }
+
+        function selectCustomColor(btn, name, hex) {
+            selectedColor = { name, hex };
+            document.querySelectorAll('.color-btn').forEach(b => {
+                b.className = 'color-btn flex items-center gap-1.5 text-xs font-semibold p-1.5 pr-3 rounded-xl border border-gray-200 bg-gray-50 transition-all';
+            });
+            btn.className = 'color-btn flex items-center gap-1.5 text-xs font-semibold p-1.5 pr-3 rounded-xl border border-emerald-900 bg-emerald-50 transition-all';
+        }
+
+        function closeCustomizerModal() {
+            document.getElementById('customizer-modal').classList.add('hidden');
+        }
+
+        function addCustomizedToCart() {
+            if (!selectedProductForCustom) return;
+
+            const cartItem = {
+                cartId: Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+                productId: selectedProductForCustom.id,
+                name: selectedProductForCustom.name,
+                subcategory: selectedProductForCustom.subcategory || 'tops',
+                priceUSD: selectedProductForCustom.priceUSD,
+                image: selectedProductForCustom.image,
+                size: selectedSize,
+                weight: selectedWeight,
+                color: selectedColor,
+                qty: 1
+            };
+
+            cart.push(cartItem);
+            updateCartUI();
+            closeCustomizerModal();
+            showNothingVication(`បានបន្ថែម "${selectedProductForCustom.name}" (${getCategoryLabel(cartItem.subcategory)}) ទៅកាន់កន្ត្រក!`);
+        }
+
+        // Dedicated Bank Hub Logic
+        function toggleBankInfoModal() {
+            const modal = document.getElementById('bank-info-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function setHubBankCurr(curr) {
+            hubBankCurrency = curr;
+            const usdBtn = document.getElementById('hub-btn-usd');
+            const khrBtn = document.getElementById('hub-btn-khr');
+
+            if (curr === 'USD') {
+                usdBtn.className = "px-3 py-1 rounded bg-emerald-900 text-white font-bold";
+                khrBtn.className = "px-3 py-1 rounded text-gray-600 font-normal";
+            } else {
+                khrBtn.className = "px-3 py-1 rounded bg-emerald-900 text-white font-bold";
+                usdBtn.className = "px-3 py-1 rounded text-gray-600 font-normal";
+            }
+            renderHubBankList();
+        }
+
+        function renderHubBankList() {
+            const list = document.getElementById('hub-bank-list');
+            if (!list) return;
+
+            const bankData = [
+                { name: 'ABA Bank', color: 'text-blue-900', border: 'border-blue-200', accUSD: '000 123 456', accKHR: '000 123 789' },
+                { name: 'ACLEDA Bank', color: 'text-sky-800', border: 'border-sky-200', accUSD: '012 888 999', accKHR: '012 888 888' },
+                { name: 'Wing Bank', color: 'text-emerald-700', border: 'border-emerald-200', accUSD: '097 777 8888', accKHR: '097 777 9999' },
+                { name: 'PKS Bank (ប្រាសាក់)', color: 'text-amber-700', border: 'border-amber-200', accUSD: '100 888 777', accKHR: '100 888 666' }
+            ];
+
+            list.innerHTML = bankData.map(b => `
+                <div class="bg-gray-50 p-3.5 rounded-2xl border ${b.border} space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-extrabold ${b.color} text-sm">${b.name}</span>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded font-bold">PECH RY</span>
+                    </div>
+                    <div class="text-[11px] text-gray-600">ម្ចាស់គណនី: <strong class="text-gray-900">ប៉ិច រ៉ី (PECH REY)</strong></div>
+                    <div class="flex justify-between items-center bg-white p-2 rounded-xl border border-gray-200 font-mono font-bold text-xs mt-1">
+                        <span>${hubBankCurrency === 'USD' ? b.accUSD + ' (USD)' : b.accKHR + ' (KHR)'}</span>
+                        <button onclick="copySpecificAcc('${hubBankCurrency === 'USD' ? b.accUSD : b.accKHR}')" class="text-emerald-800 hover:text-emerald-950 text-[11px]">
+                            <i class="fa-solid fa-copy"></i> ចម្លង
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function copySpecificAcc(acc) {
+            navigator.clipboard.writeText(acc).then(() => {
+                showNothingVication(`បានចម្លងលេខគណនី: ${acc}`);
+            }).catch(() => {
+                showNothingVication(`លេខគណនី: ${acc}`);
+            });
+        }
+
+        // Cart Drawer Operations
+        function setQuickCartOpen(isOpen) {
+            quickCartOpen = isOpen;
+            const popover = document.getElementById('quick-cart-popover');
+            if (!popover) return;
+            if (isOpen) {
+                popover.classList.remove('hidden');
+            } else {
+                popover.classList.add('hidden');
+            }
+        }
+
+        function toggleCartDrawer() {
+            setQuickCartOpen(false);
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+
+            if (drawer.classList.contains('pointer-events-none')) {
+                drawer.classList.remove('pointer-events-none', 'opacity-0');
+                panel.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('pointer-events-none', 'opacity-0');
+                panel.classList.add('translate-x-full');
+            }
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge').textContent = totalCount;
+            document.getElementById('cart-drawer-count').textContent = totalCount;
+
+            const quickCountEl = document.getElementById('quick-cart-count');
+            const quickItemsEl = document.getElementById('quick-cart-items');
+            const quickFooterEl = document.getElementById('quick-cart-footer');
+            if (quickCountEl) quickCountEl.textContent = totalCount;
+
+            const container = document.getElementById('cart-items-container');
+            const emptyView = document.getElementById('empty-cart-view');
+            const footer = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                container.innerHTML = '';
+                emptyView.classList.remove('hidden');
+                footer.classList.add('hidden');
+                if (quickItemsEl) {
+                    quickItemsEl.innerHTML = `
+                        <div class="py-8 text-center text-xs text-gray-500">
+                            <i class="fa-solid fa-bag-shopping text-2xl text-gray-300 mb-1.5 block"></i>
+                            <span>មិនទាន់មានផលិតផលក្នុងកន្ត្រកទេ</span>
+                        </div>
+                    `;
+                }
+                if (quickFooterEl) quickFooterEl.classList.add('hidden');
+                return;
+            }
+
+            emptyView.classList.add('hidden');
+            footer.classList.remove('hidden');
+            if (quickFooterEl) quickFooterEl.classList.remove('hidden');
+
+            const groupedCart = groupCartByCategory(cart);
+
+            if (quickItemsEl) {
+                quickItemsEl.innerHTML = groupedCart.map(group => `
+                    <div class="py-1.5">
+                        <div class="px-2 py-1 bg-emerald-50 text-emerald-950 rounded-lg flex items-center justify-between text-[11px] font-extrabold mb-1">
+                            <span class="truncate"><i class="fa-solid fa-tag text-terracotta-500 mr-1"></i>${group.label}</span>
+                            <span class="bg-white text-emerald-900 px-1.5 py-0.5 rounded border border-emerald-200 font-mono text-[10px] shrink-0 ml-1">${group.totalQty} • $${group.totalUSD.toFixed(2)}</span>
+                        </div>
+                        <div class="space-y-1">
+                            ${group.items.map(item => `
+                                <div class="flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-gray-50 transition-colors">
+                                    <img src="${item.image}" alt="${item.name.replace(/"/g, '&quot;')}" class="w-10 h-12 object-cover rounded-lg border border-gray-200 shrink-0">
+                                    <div class="min-w-0 flex-grow">
+                                        <div class="font-bold text-xs text-gray-900 truncate">${item.name}</div>
+                                        <div class="text-[10px] text-gray-500 truncate">ទំហំ: <strong>${item.size}</strong> • គីឡូ: <strong>${item.weight}</strong> • ពណ៌: <strong>${item.color?.name || '-'}</strong></div>
+                                        <div class="flex items-center justify-between mt-0.5">
+                                            <span class="text-[11px] font-extrabold text-terracotta-600 font-mono">x${item.qty}</span>
+                                            <span class="text-xs font-extrabold text-emerald-950">$${(item.priceUSD * item.qty).toFixed(2)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            container.innerHTML = groupedCart.map(group => `
+                <div class="space-y-2.5">
+                    <div class="flex items-center justify-between bg-emerald-50/90 border border-emerald-200/80 px-3 py-2 rounded-xl font-khmer">
+                        <span class="text-xs font-extrabold text-emerald-950 flex items-center gap-1.5">
+                            <i class="fa-solid fa-layer-group text-terracotta-500"></i>
+                            <span>${group.label}</span>
+                        </span>
+                        <span class="text-[11px] font-bold text-emerald-900 bg-white px-2 py-0.5 rounded-lg border border-emerald-200">
+                            ${group.totalQty} ទំនិញ • $${group.totalUSD.toFixed(2)}
+                        </span>
+                    </div>
+                    <div class="space-y-2.5">
+                        ${group.items.map(item => `
+                            <div class="flex gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-200 items-center font-khmer">
+                                <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-xl bg-white border border-gray-200">
+                                <div class="flex-grow min-w-0">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-bold text-xs text-gray-900 truncate">${item.name}</h4>
+                                        <button onclick="removeFromCart('${item.cartId}')" class="text-gray-400 hover:text-rose-600 text-xs ml-1">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                    <div class="text-[11px] text-gray-600 mt-1 space-y-0.5">
+                                        <div>ទំហំ: <strong class="text-emerald-950">${item.size}</strong> | គីឡូ: <strong class="text-emerald-950">${item.weight}</strong></div>
+                                        <div class="flex items-center gap-1">
+                                            <span>ពណ៌:</span>
+                                            <span class="w-3 h-3 rounded-full border border-gray-300" style="background-color: ${item.color.hex}"></span>
+                                            <span class="text-[10px] text-gray-700 font-bold">${item.color.name}</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2 pt-1 border-t border-gray-200/60">
+                                        <div>
+                                            <span class="font-extrabold text-xs text-emerald-950">$${(item.priceUSD * item.qty).toFixed(2)}</span>
+                                            <span class="text-[10px] font-bold text-terracotta-600 ml-1">(${formatKHR(item.priceUSD * item.qty)})</span>
+                                        </div>
+                                        <div class="flex items-center border border-gray-300 bg-white rounded-lg">
+                                            <button onclick="changeQty('${item.cartId}', -1)" class="w-6 h-6 flex items-center justify-center text-xs hover:bg-gray-100 rounded-l-lg">-</button>
+                                            <span class="w-6 text-center text-xs font-bold">${item.qty}</span>
+                                            <button onclick="changeQty('${item.cartId}', 1)" class="w-6 h-6 flex items-center justify-center text-xs hover:bg-gray-100 rounded-r-lg">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotalUSD = cart.reduce((sum, item) => sum + (item.priceUSD * item.qty), 0);
+            const subtotalUsdEl = document.getElementById('cart-subtotal-usd');
+            const subtotalKhrEl = document.getElementById('cart-subtotal-khr');
+            const quickTotalUsdEl = document.getElementById('quick-cart-total-usd');
+            const quickTotalKhrEl = document.getElementById('quick-cart-total-khr');
+
+            if (subtotalUsdEl) subtotalUsdEl.textContent = `$${subtotalUSD.toFixed(2)}`;
+            if (subtotalKhrEl) subtotalKhrEl.textContent = formatKHR(subtotalUSD);
+            if (quickTotalUsdEl) quickTotalUsdEl.textContent = `$${subtotalUSD.toFixed(2)}`;
+            if (quickTotalKhrEl) quickTotalKhrEl.textContent = formatKHR(subtotalUSD);
+        }
+
+        function changeQty(cartId, delta) {
+            const idx = cart.findIndex(item => item.cartId === cartId);
+            if (idx === -1) return;
+
+            const nextQty = cart[idx].qty + delta;
+            if (nextQty <= 0) {
+                const removedName = cart[idx].name;
+                cart.splice(idx, 1);
+                showNothingVication(`បានដក "${removedName}" ចេញពីកន្ត្រក`);
+            } else {
+                cart[idx].qty = nextQty;
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(cartId) {
+            const idx = cart.findIndex(item => item.cartId === cartId);
+            if (idx === -1) return;
+            const removedName = cart[idx].name;
+            cart.splice(idx, 1);
+            updateCartUI();
+            showNothingVication(`បានដក "${removedName}" ចេញពីកន្ត្រក`);
+        }
+
+        function getCartSubtotalUSD() {
+            return cart.reduce((sum, item) => sum + (item.priceUSD * item.qty), 0);
+        }
+
+        function formatPaymentAmount(usd) {
+            return payCurrency === 'USD' ? `$${usd.toFixed(2)}` : formatKHR(usd);
+        }
+
+        function setPayCurrency(curr) {
+            payCurrency = curr;
+            const usdBtn = document.getElementById('curr-btn-usd');
+            const khrBtn = document.getElementById('curr-btn-khr');
+            if (usdBtn && khrBtn) {
+                if (curr === 'USD') {
+                    usdBtn.className = "px-2 py-0.5 rounded bg-emerald-900 text-white";
+                    khrBtn.className = "px-2 py-0.5 rounded text-gray-600";
+                } else {
+                    khrBtn.className = "px-2 py-0.5 rounded bg-emerald-900 text-white";
+                    usdBtn.className = "px-2 py-0.5 rounded text-gray-600";
+                }
+            }
+            const checkedRadio = document.querySelector('input[name="bank"]:checked');
+            updateBankUI(checkedRadio ? checkedRadio.value : 'ABA Bank');
+        }
+
+        function updateBankUI(bankName) {
+            const bankAccounts = {
+                'ABA Bank': { usd: '000 123 456', khr: '000 123 789' },
+                'ACLEDA Bank': { usd: '012 888 999', khr: '012 888 888' },
+                'Wing Bank': { usd: '097 777 8888', khr: '097 777 9999' },
+                'PKS Bank (ប្រាសាក់)': { usd: '100 888 777', khr: '100 888 666' },
+                'PKS Bank': { usd: '100 888 777', khr: '100 888 666' }
+            };
+
+            document.querySelectorAll('#bank-selector .bank-card').forEach(card => {
+                const input = card.querySelector('input[name="bank"]');
+                if (input && input.value === bankName) {
+                    card.classList.remove('border', 'border-gray-300');
+                    card.classList.add('border-2', 'border-emerald-900');
+                } else {
+                    card.classList.remove('border-2', 'border-emerald-900');
+                    card.classList.add('border', 'border-gray-300');
+                }
+            });
+
+            const accInfo = bankAccounts[bankName] || bankAccounts['ABA Bank'];
+            const accText = payCurrency === 'USD' ? `${accInfo.usd} (USD)` : `${accInfo.khr} (KHR)`;
+            const totalUSD = getCartSubtotalUSD();
+            const formattedTotal = formatPaymentAmount(totalUSD);
+
+            const selectedBankEl = document.getElementById('selected-bank-name');
+            const bankAccNumEl = document.getElementById('bank-acc-num');
+            const qrAmountEl = document.getElementById('qr-amount-display');
+            const checkoutTotalEl = document.getElementById('checkout-total-display');
+
+            if (selectedBankEl) selectedBankEl.textContent = bankName;
+            if (bankAccNumEl) bankAccNumEl.textContent = accText;
+            if (qrAmountEl) qrAmountEl.textContent = formattedTotal;
+            if (checkoutTotalEl) checkoutTotalEl.textContent = formattedTotal;
+        }
+
+        function copyBankAcc() {
+            const accEl = document.getElementById('bank-acc-num');
+            if (!accEl) return;
+            const rawAcc = accEl.textContent.replace(/\s*\((USD|KHR)\)\s*$/, '').trim();
+            copySpecificAcc(rawAcc);
+        }
+
+        function previewSlipImage(event) {
+            const file = event.target.files && event.target.files[0];
+            const box = document.getElementById('slip-preview-box');
+            const img = document.getElementById('slip-preview-img');
+            if (!file || !box || !img) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                img.src = e.target.result;
+                box.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function detectGPSLocation() {
+            const addrInput = document.getElementById('cust-address');
+            if (!navigator.geolocation) {
+                showNothingVication('ឧបករណ៍នេះមិនគាំទ្រ GPS ទេ សូមបញ្ចូលអាសយដ្ឋានដោយផ្ទាល់។');
+                return;
+            }
+            showNothingVication('កំពុងស្វែងរកទីតាំង GPS បច្ចុប្បន្ន...');
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const lat = pos.coords.latitude.toFixed(5);
+                    const lng = pos.coords.longitude.toFixed(5);
+                    const gpsText = `GPS: ${lat}, ${lng}`;
+                    if (addrInput) {
+                        addrInput.value = addrInput.value.trim()
+                            ? `${addrInput.value.trim()} (${gpsText})`
+                            : `ទីតាំង GPS (${lat}, ${lng})`;
+                    }
+                    showNothingVication(`បានភ្ជាប់ទីតាំង GPS: ${lat}, ${lng}`);
+                },
+                () => {
+                    showNothingVication('មិនអាចទាញយក GPS បានទេ សូមបញ្ចូលអាសយដ្ឋានផ្ទះ/ផ្លូវ។');
+                }
+            );
+        }
+
+        function renderCheckoutItemsTable() {
+            const tbody = document.getElementById('checkout-items-table-body');
+            const countBadge = document.getElementById('checkout-item-count-badge');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            if (countBadge) countBadge.textContent = `${totalQty} ទំនិញ`;
+
+            if (!tbody) return;
+            tbody.innerHTML = cart.map(item => `
+                <tr>
+                    <td class="p-2.5">
+                        <div class="font-bold text-gray-900">${item.name}</div>
+                        <div class="text-[10px] text-emerald-800">${getCategoryLabel(item.subcategory)}</div>
+                    </td>
+                    <td class="p-2.5 text-center text-[11px] text-gray-600">
+                        <div>${item.size} • ${item.weight}</div>
+                        <div class="inline-flex items-center gap-1 mt-0.5">
+                            <span class="w-2.5 h-2.5 rounded-full border border-gray-300" style="background-color:${item.color?.hex || '#18181b'}"></span>
+                            <span>${item.color?.name || '-'}</span>
+                        </div>
+                    </td>
+                    <td class="p-2.5 text-center font-mono font-bold text-terracotta-600">x${item.qty}</td>
+                    <td class="p-2.5 text-right font-bold text-emerald-950">
+                        <div>$${(item.priceUSD * item.qty).toFixed(2)}</div>
+                        <div class="text-[10px] text-gray-500">${formatKHR(item.priceUSD * item.qty)}</div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showNothingVication('សូមជ្រើសរើសផលិតផលចូលកន្ត្រកជាមុនសិន!');
+                return;
+            }
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+            if (drawer && panel) {
+                drawer.classList.add('pointer-events-none', 'opacity-0');
+                panel.classList.add('translate-x-full');
+            }
+
+            document.getElementById('checkout-form-step').classList.remove('hidden');
+            document.getElementById('checkout-success-step').classList.add('hidden');
+            renderCheckoutItemsTable();
+            const checkedRadio = document.querySelector('input[name="bank"]:checked');
+            updateBankUI(checkedRadio ? checkedRadio.value : 'ABA Bank');
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        async function handleCheckoutSubmit(event) {
+            event.preventDefault();
+            if (cart.length === 0) {
+                showNothingVication('កន្ត្រកទំនិញទទេរ!');
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const city = document.getElementById('cust-city').value;
+            const address = document.getElementById('cust-address').value.trim();
+            const date = document.getElementById('cust-date').value;
+            const time = document.getElementById('cust-time').value;
+            const bankRadio = document.querySelector('input[name="bank"]:checked');
+            const bankName = bankRadio ? bankRadio.value : 'ABA Bank';
+            const tranRef = document.getElementById('cust-tran-ref').value.trim() || 'KHQR-AUTO';
+            const slipImg = document.getElementById('slip-preview-img');
+            const slipDataUrl = (slipImg && !document.getElementById('slip-preview-box').classList.contains('hidden')) ? slipImg.src : '';
+
+            const subtotalUSD = getCartSubtotalUSD();
+            const orderCode = '#PR-' + Math.floor(1000 + Math.random() * 9000);
+
+            const orderPayload = {
+                orderCode,
+                owner: 'ប៉ិច រ៉ី (Pech Rey)',
+                customer: { name, phone, city, address },
+                delivery: { date, time },
+                payment: {
+                    bank: bankName,
+                    currency: payCurrency,
+                    tranRef,
+                    totalUSD: subtotalUSD,
+                    totalKHR: subtotalUSD * KHR_RATE,
+                    slipDataUrl
+                },
+                items: cart.map(item => ({
+                    name: item.name,
+                    subcategory: item.subcategory,
+                    size: item.size,
+                    weight: item.weight,
+                    color: item.color,
+                    priceUSD: item.priceUSD,
+                    qty: item.qty
+                })),
+                createdAt: new Date().toLocaleString('km-KH')
+            };
+
+            const saved = typeof window.saveOrderToFirestore === 'function'
+                ? await window.saveOrderToFirestore(orderPayload)
+                : true;
+
+            if (!saved) {
+                showNothingVication('មានបញ្ហាក្នុងការរក្សាទុកទៅ Cloud សូមព្យាយាមម្តងទៀត។');
+                return;
+            }
+
+            document.getElementById('success-order-id').textContent = orderCode;
+            document.getElementById('success-bank-name').textContent = `${bankName} (${payCurrency})`;
+            document.getElementById('success-date-time').textContent = `${date} • ${time}`;
+
+            document.getElementById('checkout-form-step').classList.add('hidden');
+            document.getElementById('checkout-success-step').classList.remove('hidden');
+
+            cart = [];
+            updateCartUI();
+            showNothingVication(`បានបញ្ជូនកុម្មង់ ${orderCode} ទៅ Cloud ជោគជ័យ!`);
+        }
+
+        function openCloudOrdersModal() {
+            document.getElementById('cloud-orders-modal').classList.remove('hidden');
+            window.updateCloudOrdersUI(window.cachedCloudOrders || []);
+        }
+
+        function closeCloudOrdersModal() {
+            document.getElementById('cloud-orders-modal').classList.add('hidden');
+        }
+
+        window.updateCloudOrdersUI = function(orders) {
+            const listEl = document.getElementById('cloud-orders-list');
+            if (!listEl) return;
+
+            if (!orders || orders.length === 0) {
+                listEl.innerHTML = `
+                    <div class="text-center py-12 text-gray-500 text-xs">
+                        <i class="fa-solid fa-cloud-arrow-down text-3xl text-gray-300 mb-2 block"></i>
+                        <span>មិនទាន់មានប្រវត្តិការបញ្ជាទិញលើ Cloud នៅឡើយទេ។</span>
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = orders.map(ord => {
+                const items = ord.items || [];
+                const totalUSD = ord.payment?.totalUSD || items.reduce((s, i) => s + (i.priceUSD * i.qty), 0);
+                return `
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-3 text-xs">
+                        <div class="flex flex-wrap justify-between items-center gap-2 pb-2 border-b border-gray-200">
+                            <div>
+                                <span class="font-mono font-extrabold text-emerald-950 text-sm">${ord.orderCode || '#PR-ORDER'}</span>
+                                <span class="text-[11px] text-gray-500 ml-2">${ord.createdAt || ''}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="bg-emerald-100 text-emerald-900 font-bold px-2.5 py-1 rounded-lg text-[11px]">
+                                    ${ord.payment?.bank || 'Bank'} (${ord.payment?.currency || 'USD'})
+                                </span>
+                                <span class="font-black text-terracotta-600 text-sm">$${Number(totalUSD).toFixed(2)}</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-gray-700">
+                            <div><strong>អតិថិជន:</strong> ${ord.customer?.name || '-'} (${ord.customer?.phone || '-'})</div>
+                            <div><strong>កាលបរិច្ឆេទ:</strong> ${ord.delivery?.date || '-'} • ${ord.delivery?.time || '-'}</div>
+                            <div class="sm:col-span-2"><strong>ទីតាំង:</strong> ${ord.customer?.city || ''} — ${ord.customer?.address || ''}</div>
+                        </div>
+
+                        <div class="bg-white rounded-xl border border-gray-200 p-2.5 space-y-1.5">
+                            ${items.map(it => `
+                                <div class="flex justify-between items-center text-[11px]">
+                                    <span class="font-bold text-gray-800">${it.name} <span class="text-gray-500 font-normal">(${it.size}, ${it.weight}, ${it.color?.name || '-'})</span></span>
+                                    <span class="font-mono font-bold text-emerald-900">x${it.qty} • $${(it.priceUSD * it.qty).toFixed(2)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        };
+
+        function toggleStoreLocationModal() {
+            const m = document.getElementById('location-modal');
+            m.classList.toggle('hidden');
+        }
+
+        // NothingVication System
+        function showNothingVication(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = 'bg-emerald-950 text-white text-xs font-khmer font-semibold px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 transform translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto border border-emerald-800';
+            toast.innerHTML = `
+                <i class="fa-solid fa-bell text-terracotta-400 text-sm"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
